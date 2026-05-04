@@ -12,7 +12,6 @@
   position: relative;
 }
 
-/* Subtle background gradient for depth */
 .main-content::before {
   content: '';
   position: absolute;
