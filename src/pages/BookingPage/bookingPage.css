@@ -1,0 +1,83 @@
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--radius-md);
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 1.25rem 1.5rem;
+}
+
+.bookings-table th {
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bookings-table td {
+  border-bottom: 1px solid var(--border-color);
+  background: transparent;
+  transition: background var(--transition-fast);
+}
+
+.bookings-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.bookings-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.font-medium {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.datetime-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.date-text {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.time-text {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
