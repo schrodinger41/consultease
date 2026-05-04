@@ -13,6 +13,15 @@ export default function AppointmentPage() {
     topic: ""
   });
 
+  const professorSchedules = {
+    "Prof. Smith": ["Mon 9:00 AM - 11:00 AM", "Wed 1:00 PM - 3:00 PM"],
+    "Prof. Lee": ["Tue 10:30 AM - 12:30 PM", "Thu 2:00 PM - 4:00 PM"],
+    "Prof. Cruz": ["Fri 10:00 AM - 2:00 PM"],
+    "Prof. Johnson": ["Mon 3:00 PM - 5:00 PM", "Fri 1:00 PM - 3:00 PM"]
+  };
+
+  const availableTimes = formData.professor ? professorSchedules[formData.professor] : [];
+
   useEffect(() => {
     if (location.state && location.state.selectedProf) {
       setFormData(prev => ({ ...prev, professor: location.state.selectedProf }));
@@ -58,8 +67,13 @@ export default function AppointmentPage() {
             </div>
 
             <div className="input-group">
-              <label><Clock size={16} /> Time</label>
-              <input type="time" name="time" value={formData.time} onChange={handleChange} required />
+              <label><Clock size={16} /> Available Times</label>
+              <select name="time" value={formData.time} onChange={handleChange} required disabled={!formData.professor}>
+                <option value="" disabled>Select a time slot</option>
+                {availableTimes.map((timeSlot, idx) => (
+                  <option key={idx} value={timeSlot}>{timeSlot}</option>
+                ))}
+              </select>
             </div>
             
             <div className="input-group full-width">

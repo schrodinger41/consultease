@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { LayoutDashboard, Users, CalendarDays, BookmarkCheck, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, CalendarDays, BookmarkCheck, LogOut, Clock } from "lucide-react";
 import "./sidebar.css";
 
 export default function TeacherSidebar() {
@@ -10,6 +10,7 @@ export default function TeacherSidebar() {
     { name: "Overview", path: "/teacher", icon: LayoutDashboard },
     { name: "Incoming Requests", path: "/teacher/requests", icon: Users },
     { name: "My Schedule", path: "/teacher/schedule", icon: CalendarDays },
+    { name: "My Availability", path: "/teacher/availability", icon: Clock },
   ];
 
   return (

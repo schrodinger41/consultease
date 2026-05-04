@@ -17,6 +17,7 @@ import BookingPage from "./pages/BookingPage/BookingPage";
 import TeacherHomePage from "./pages/TeacherHomePage/TeacherHomePage";
 import TeacherRequestsPage from "./pages/TeacherRequestsPage/TeacherRequestsPage";
 import TeacherSchedulePage from "./pages/TeacherSchedulePage/TeacherSchedulePage";
+import TeacherAvailabilityPage from "./pages/TeacherAvailabilityPage/TeacherAvailabilityPage";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/" element={<TeacherHomePage />} />
                 <Route path="/requests" element={<TeacherRequestsPage />} />
                 <Route path="/schedule" element={<TeacherSchedulePage />} />
+                <Route path="/availability" element={<TeacherAvailabilityPage />} />
               </Routes>
             </TeacherLayout>
           }
