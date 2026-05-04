@@ -117,3 +117,38 @@
 .w-full {
   width: 100%;
 }
+
+.role-toggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  padding: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-family);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.role-btn:hover {
+  color: var(--text-primary);
+}
+
+.role-btn.active {
+  background: var(--bg-main);
+  color: var(--accent-primary);
+  box-shadow: var(--shadow-sm);
+}

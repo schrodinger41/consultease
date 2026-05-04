@@ -1,12 +1,22 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
+import TeacherLayout from "./components/TeacherLayout";
+
+// Auth Pages
+import LoginPage from "./pages/AuthPage/LoginPage";
+import RegisterPage from "./pages/AuthPage/RegisterPage";
+
+// Student Pages
 import HomePage from "./pages/HomePage/HomePage";
 import ConsultationPage from "./pages/ConsultationPage/ConsultationPage";
 import AppointmentPage from "./pages/AppointmentPage/AppointmentPage";
 import BookingPage from "./pages/BookingPage/BookingPage";
-import LoginPage from "./pages/AuthPage/LoginPage";
-import RegisterPage from "./pages/AuthPage/RegisterPage";
+
+// Teacher Pages
+import TeacherHomePage from "./pages/TeacherHomePage/TeacherHomePage";
+import TeacherRequestsPage from "./pages/TeacherRequestsPage/TeacherRequestsPage";
+import TeacherSchedulePage from "./pages/TeacherSchedulePage/TeacherSchedulePage";
 
 function App() {
   return (
@@ -16,7 +26,21 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         
-        {/* Dashboard Routes (With Sidebar) */}
+        {/* Teacher Routes (With Teacher Sidebar) */}
+        <Route
+          path="/teacher/*"
+          element={
+            <TeacherLayout>
+              <Routes>
+                <Route path="/" element={<TeacherHomePage />} />
+                <Route path="/requests" element={<TeacherRequestsPage />} />
+                <Route path="/schedule" element={<TeacherSchedulePage />} />
+              </Routes>
+            </TeacherLayout>
+          }
+        />
+
+        {/* Student/Dashboard Routes (With Student Sidebar) */}
         <Route
           path="/*"
           element={

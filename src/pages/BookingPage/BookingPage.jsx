@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { CheckCircle, Clock, XCircle, MoreVertical } from "lucide-react";
+import { CheckCircle, Clock, XCircle } from "lucide-react";
 import "./bookingPage.css";
 
 export default function BookingPage() {
@@ -55,7 +55,6 @@ export default function BookingPage() {
               <th>Topic</th>
               <th>Date & Time</th>
               <th>Status</th>
-              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -78,11 +77,6 @@ export default function BookingPage() {
                     {getStatusIcon(b.status)}
                     <span style={{ marginLeft: '0.35rem' }}>{b.status}</span>
                   </span>
-                </td>
-                <td>
-                  <button className="action-btn">
-                    <MoreVertical size={18} />
-                  </button>
                 </td>
               </tr>
             ))}

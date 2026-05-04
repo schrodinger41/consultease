@@ -1,14 +1,19 @@
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { BookmarkCheck, Mail, Lock } from "lucide-react";
+import { BookmarkCheck, Mail, Lock, User, BookOpen } from "lucide-react";
 import "./auth.css";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const [role, setRole] = useState("student"); // "student" or "teacher"
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In a prototype, we just navigate to the dashboard on submit
-    navigate("/");
+    if (role === "student") {
+      navigate("/");
+    } else {
+      navigate("/teacher");
+    }
   };
 
   return (
@@ -20,6 +25,23 @@ export default function LoginPage() {
           </div>
           <h1>Welcome Back</h1>
           <p>Sign in to your ConsultEase account</p>
+        </div>
+
+        <div className="role-toggle">
+          <button 
+            type="button" 
+            className={`role-btn ${role === "student" ? "active" : ""}`}
+            onClick={() => setRole("student")}
+          >
+            <User size={16} /> Student
+          </button>
+          <button 
+            type="button" 
+            className={`role-btn ${role === "teacher" ? "active" : ""}`}
+            onClick={() => setRole("teacher")}
+          >
+            <BookOpen size={16} /> Teacher
+          </button>
         </div>
 
         <form className="auth-form" onSubmit={handleSubmit}>
@@ -48,7 +70,7 @@ export default function LoginPage() {
           </div>
 
           <button type="submit" className="btn-primary w-full">
-            Sign In
+            Sign In as {role === "student" ? "Student" : "Teacher"}
           </button>
         </form>
 
